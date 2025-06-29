@@ -1,0 +1,88 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle with gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Signal wave gradient -->
+    <linearGradient id="signalGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00ff88;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#00d4ff;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#0099ff;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Phone gradient -->
+    <linearGradient id="phoneGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f8fafc;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Glow effect -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Main background circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#bgGradient)" stroke="#4a5568" stroke-width="2"/>
+  
+  <!-- Mobile phone device -->
+  <rect x="75" y="65" width="50" height="80" rx="8" ry="8" fill="url(#phoneGradient)" stroke="#2d3748" stroke-width="2"/>
+  
+  <!-- Phone screen -->
+  <rect x="80" y="72" width="40" height="60" rx="3" ry="3" fill="#1a202c"/>
+  
+  <!-- Screen content - signal bars -->
+  <rect x="85" y="120" width="4" height="8" fill="#00ff88"/>
+  <rect x="91" y="115" width="4" height="13" fill="#00d4ff"/>
+  <rect x="97" y="110" width="4" height="18" fill="#0099ff"/>
+  <rect x="103" y="105" width="4" height="23" fill="#0066cc"/>
+  
+  <!-- Network signal waves emanating from phone -->
+  <path d="M 125 85 Q 140 75 155 85" stroke="url(#signalGradient)" stroke-width="3" fill="none" opacity="0.9" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.3;0.9;0.3" dur="2s" repeatCount="indefinite"/>
+  </path>
+  
+  <path d="M 125 95 Q 145 80 165 95" stroke="url(#signalGradient)" stroke-width="3" fill="none" opacity="0.7" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.5;0.7;0.5" dur="2.5s" repeatCount="indefinite"/>
+  </path>
+  
+  <path d="M 125 105 Q 150 85 175 105" stroke="url(#signalGradient)" stroke-width="3" fill="none" opacity="0.5" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="3s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- Data points/metrics indicators -->
+  <circle cx="45" cy="80" r="3" fill="#00ff88" opacity="0.8">
+    <animate attributeName="r" values="2;4;2" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="35" cy="110" r="3" fill="#00d4ff" opacity="0.8">
+    <animate attributeName="r" values="2;4;2" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="50" cy="140" r="3" fill="#0099ff" opacity="0.8">
+    <animate attributeName="r" values="2;4;2" dur="1.8s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- User feedback star -->
+  <polygon points="100,40 103,49 113,49 105,55 108,65 100,59 92,65 95,55 87,49 97,49" fill="#ffd700" stroke="#ff8c00" stroke-width="1" opacity="0.9">
+    <animateTransform attributeName="transform" type="rotate" values="0 100 52;360 100 52" dur="8s" repeatCount="indefinite"/>
+  </polygon>
+
+  <!-- Location pin indicator -->
+  <path d="M 160 130 C 160 125, 165 120, 170 120 C 175 120, 180 125, 180 130 C 180 135, 170 145, 170 145 C 170 145, 160 135, 160 130 Z" fill="#ff4757" stroke="#ffffff" stroke-width="1"/>
+  <circle cx="170" cy="130" r="3" fill="#ffffff"/>
+
+  <!-- Real-time pulse indicator -->
+  <circle cx="100" cy="100" r="85" fill="none" stroke="#00ff88" stroke-width="1" opacity="0.3">
+    <animate attributeName="r" values="85;95;85" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;0.1;0.3" dur="3s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- App title text -->
+  <text x="100" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">QoE Monitor</text>
+</svg>
